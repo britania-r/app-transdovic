@@ -1,0 +1,51 @@
+/* src/App.css */
+:root {
+  --font-primary: 'Nunito Sans', sans-serif;
+  
+  --color-primary: #2970FF; /* Azul principal del diseño */
+  --color-primary-light: #F0F6FF;
+  --color-background: #F7F8FC; /* Gris claro para el fondo del contenido */
+  --color-surface: #FFFFFF;    /* Blanco para las tarjetas */
+  --color-text-primary: #2C3E50;
+  --color-text-secondary: #8C98A4;
+  --color-border: #EAEBEE;
+  --color-success: #00C48C;
+  --color-danger: #FF4D49;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --border-radius: 12px;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent; /* Elimina el destello de color al tocar en Chrome/Safari */
+  -webkit-touch-callout: none; /* Deshabilita el menú que aparece al mantener presionado (copiar, etc.) en iOS */
+  -webkit-user-select: none; /* Previene la selección de texto en Chrome/Safari */
+  -khtml-user-select: none; /* Para navegadores antiguos */
+  -moz-user-select: none; /* Para Firefox */
+  -ms-user-select: none; /* Para Internet Explorer/Edge */
+  user-select: none; /* El estándar actual, previene la selección de texto */
+}
+
+/* --- IMPORTANTE: Permitir la selección en campos de texto --- */
+/* Anulamos la regla anterior específicamente para inputs y textareas, 
+   para que los usuarios SÍ puedan seleccionar el texto para copiar, pegar o corregir. */
+input, textarea {
+  -webkit-user-select: auto;
+  -khtml-user-select: auto;
+  -moz-user-select: auto;
+  -ms-user-select: auto;
+  user-select: auto;
+}
+
+
+

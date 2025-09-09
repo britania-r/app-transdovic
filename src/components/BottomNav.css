@@ -1,0 +1,33 @@
+/* src/components/BottomNav.css */
+.bottom-nav {
+  background-color: var(--color-surface);
+  height: 60px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid var(--color-border);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.bottom-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  padding: 4px 12px;
+}
+
+.bottom-nav-item svg {
+  font-size: 22px;
+  margin-bottom: 2px;
+}
+
+.bottom-nav-item.active {
+  color: var(--color-primary);
+}

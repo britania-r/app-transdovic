@@ -1,0 +1,178 @@
+/* src/app/SettingsPage.css */
+
+/* --- Contenedor Principal y Tarjeta --- */
+.settings-card {
+  background-color: var(--color-surface);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  padding: 24px;
+}
+
+/* --- Selector de Rol --- */
+.role-selector-container {
+  margin-bottom: 24px;
+  display: flex;
+  flex-wrap: wrap; /* Para que se adapte en pantallas pequeñas */
+  align-items: center;
+  gap: 12px;
+}
+
+.role-selector-container label {
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  font-size: 14px;
+}
+
+.role-selector-container select {
+  font-family: var(--font-primary);
+  padding: 10px 16px;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  min-width: 280px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* --- Tabla de Permisos (Vista Desktop) --- */
+.permissions-table-container {
+  overflow-x: auto;
+}
+
+.permissions-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.permissions-table th, 
+.permissions-table td {
+  padding: 16px;
+  border-bottom: 1px solid var(--color-border);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.permissions-table tr:last-child td {
+  border-bottom: none;
+}
+
+.permissions-table th {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  background-color: var(--color-background);
+}
+
+.permissions-table td:first-child {
+  text-align: left;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.permissions-table input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: var(--color-primary); /* Moderno, colorea el check */
+}
+
+/* --- Botón de Guardar --- */
+.save-button-container {
+  margin-top: 24px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.save-button-container button {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.save-button-container button:hover {
+  opacity: 0.9;
+}
+
+.save-button-container button:disabled {
+  background-color: #9ca3af; /* Un gris estándar para estado deshabilitado */
+  cursor: not-allowed;
+}
+
+/* --- Estilos Responsivos (Móvil y Tablet) --- */
+@media (max-width: 768px) {
+  .settings-card {
+    padding: 0px;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  /* Ocultamos la tabla tradicional en móvil */
+  .permissions-table thead {
+    display: none;
+  }
+  
+  .permissions-table-container {
+    overflow-x: hidden;
+  }
+  
+  .permissions-table,
+  .permissions-table tbody,
+  .permissions-table tr,
+  .permissions-table td {
+    display: block;
+    width: 100%;
+  }
+
+  /* Cada fila de módulo se convierte en una tarjeta */
+  .permissions-table tr {
+    background-color: var(--color-surface);
+    border-radius: var(--border-radius);
+    margin-bottom: 16px;
+    padding: 16px;
+    box-shadow: var(--shadow-sm);
+    box-sizing: border-box;
+  }
+
+  .permissions-table td {
+    border: none;
+    padding: 12px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  /* La primera celda (nombre del módulo) se convierte en un título */
+  .permissions-table td:first-child {
+    font-size: 18px;
+    padding-bottom: 16px;
+    justify-content: flex-start;
+    border-bottom: 2px solid var(--color-border); /* Separador más grueso */
+  }
+
+  /* Las demás celdas (checkboxes) tienen su label */
+  .permissions-table td:not(:first-child):before {
+    content: attr(data-label); /* Necesitaremos añadir 'data-label' al JSX */
+    font-weight: 600;
+    color: var(--color-text-secondary);
+  }
+
+  .permissions-table td:last-of-type {
+    border-bottom: none;
+  }
+
+  .save-button-container {
+    margin-top: 16px;
+  }
+  
+  .save-button-container button {
+    width: 100%; /* El botón ocupa todo el ancho en móvil */
+  }
+}

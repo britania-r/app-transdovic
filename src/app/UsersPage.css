@@ -1,0 +1,54 @@
+/* src/app/UsersPage.css */
+
+/* --- Estilos Generales --- */
+.page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; height: 60px; }
+.add-btn { background-color: var(--color-primary); color: white; border: none; padding: 10px 16px; border-radius: var(--border-radius); font-size: 16px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+.loading-container { display: flex; justify-content: center; padding: 40px; }
+.table-card { background-color: var(--color-surface); border-radius: var(--border-radius); box-shadow: var(--shadow-sm); }
+.table-responsive-wrapper { overflow-x: auto; }
+
+/* --- Estilos de la Tabla (Desktop) --- */
+.data-table { width: 100%; border-collapse: collapse; }
+.data-table th, .data-table td { padding: 12px 20px; text-align: left; border-bottom: 1px solid var(--color-border); white-space: nowrap; }
+.data-table tr:last-child td { border-bottom: none; }
+.data-table th { font-size: 12px; font-weight: 700; color: var(--color-text-secondary); text-transform: uppercase; }
+
+/* ¡CORRECCIÓN! Eliminamos la alineación a la derecha */
+.actions-header { text-align: left !important; }
+.actions-cell { text-align: left; }
+
+.actions-group { display: inline-flex; gap: 10px; }
+.action-btn { background: none; border: none; cursor: pointer; font-size: 18px; padding: 4px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: transform 0.2s ease-in-out, color 0.2s; }
+.action-btn:hover { transform: scale(1.1); }
+.view-btn { color: var(--color-text-secondary); }
+.edit-btn { color: var(--color-primary); }
+.delete-btn { color: var(--color-danger); }
+
+/* --- Estilos de Tags --- */
+.cargo-tag { padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 700; text-transform: capitalize; background-color: #f0f0f0; color: #555; }
+.cargo-tag.administrador, .cargo-tag.gerente { background-color: #e6f7ff; color: #1890ff; border: 1px solid #91d5ff; }
+.cargo-tag.conductor_carga_pesada, .cargo-tag.conductor_patio { background-color: #fffbe6; color: #faad14; border: 1px solid #ffe58f; }
+
+/* --- Estilos Responsivos (Móvil y Tablet) --- */
+@media (max-width: 768px) {
+  .data-table thead { display: none; }
+  .table-responsive-wrapper { overflow-x: hidden; }
+  .table-card { background-color: transparent; box-shadow: none; padding: 0; }
+  .data-table, .data-table tbody, .data-table tr, .data-table td { display: block; width: 100%; }
+  .data-table tr { background-color: var(--color-surface); border-radius: var(--border-radius); margin-bottom: 16px; padding: 20px; box-shadow: var(--shadow-sm); box-sizing: border-box; }
+  .data-table td { border: none; padding: 10px 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--color-border); }
+  .data-table td:last-child { border-bottom: none; }
+  .data-table td:before { content: attr(data-label); font-weight: 600; color: var(--color-text-secondary); padding-right: 10px; }
+  .cargo-tag { flex-shrink: 0; } /* Evita que el tag se encoja */
+  .actions-cell { padding-top: 10px !important; justify-content: flex-end; }
+  .actions-cell:before { content: "Acciones"; }
+}
+
+/* --- Scrollbar y Modales de confirmación --- */
+.table-responsive-wrapper::-webkit-scrollbar { height: 8px; }
+.table-responsive-wrapper::-webkit-scrollbar-track { background: transparent; }
+.table-responsive-wrapper::-webkit-scrollbar-thumb { background-color: rgba(0, 0, 0, 0.2); border-radius: 10px; }
+.confirm-actions { display: flex; justify-content: flex-end; gap: 12px; margin-top: 24px; }
+.confirm-actions button { padding: 10px 20px; border-radius: var(--border-radius); font-weight: 600; cursor: pointer; border: none; }
+.cancel-btn { background-color: var(--color-surface); border: 1px solid var(--color-border); color: var(--color-text-secondary); }
+.delete-confirm-btn { background-color: var(--color-danger); color: white; }

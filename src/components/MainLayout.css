@@ -1,0 +1,40 @@
+/* src/components/MainLayout.css */
+.app-layout {
+  display: flex;
+}
+
+/* --- Estilos para Desktop --- */
+.main-content.desktop-full {
+  flex-grow: 1;
+  margin-left: 250px; /* Ancho del sidebar completo */
+  background-color: var(--color-background);
+  min-height: 100vh;
+  transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.main-content.desktop-full .content-wrapper {
+  padding: 10px;
+}
+
+/* --- NUEVO: Estilos para cuando el menú está colapsado en Desktop --- */
+.main-content.desktop-collapsed {
+  flex-grow: 1;
+  margin-left: 70px; /* Ancho del sidebar colapsado */
+  background-color: var(--color-background);
+  min-height: 100vh;
+  transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.main-content.desktop-collapsed .content-wrapper {
+  padding: 10px;
+}
+
+/* --- Estilos para Móvil/Tablet (sin cambios) --- */
+.main-content.mobile {
+  width: 100%;
+  background-color: var(--color-background);
+  min-height: 100vh;
+  padding-top: 64px;
+  padding-bottom: 60px;
+}
+.main-content.mobile .content-wrapper {
+  padding: 10px;
+}

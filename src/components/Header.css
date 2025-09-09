@@ -1,0 +1,30 @@
+/* src/components/Header.css */
+.app-header {
+  background-color: var(--color-surface);
+  height: 64px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-border);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.header-logo {
+  font-size: 20px;
+  color: var(--color-primary);
+  font-weight: 900;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.header-username {
+  font-weight: 600;
+}
