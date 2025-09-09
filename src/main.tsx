@@ -1,27 +1,15 @@
-// src/main.tsx
+// src/main.tsx (VERSIÓN DE PRUEBA SÚPER SIMPLE)
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
 import './index.css';
 
-// --- Importaciones de nuestros Providers ---
-import { AuthProvider } from './contexts/AuthContext';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import ErrorBoundary from './components/ErrorBoundary'; // <-- 1. IMPORTAMOS NUESTRO ERROR BOUNDARY
-
-// Creamos una instancia del cliente de React Query
-const queryClient = new QueryClient();
+// No importamos NADA más. Ni App, ni Contexts, ni Providers.
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    {/* 2. ENVOLVEMOS TODO CON EL ERRORBOUNDARY */}
-    <ErrorBoundary>
-      <QueryClientProvider client={queryClient}>
-        <AuthProvider>
-          <App />
-        </AuthProvider>
-      </QueryClientProvider>
-    </ErrorBoundary>
+    <div style={{ padding: '20px', color: 'black', backgroundColor: 'lightgreen', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '24px' }}>
+      ¡El motor de React funciona!
+    </div>
   </React.StrictMode>
 );
