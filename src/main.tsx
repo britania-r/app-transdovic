@@ -1,22 +1,31 @@
-// src/main.tsx (VERSIÓN DE PRUEBA #2)
+// src/main.tsx (VERSIÓN FINAL Y FUNCIONAL)
+
+// --- ¡LA SOLUCIÓN MÁGICA ESTÁ AQUÍ! ---
+// Este polyfill debe importarse al principio para que Supabase funcione en Capacitor.
+import 'react-native-url-polyfill/auto';
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import App from './App';
 import './index.css';
 
-// Importamos SOLO lo de React Query
+// --- Volvemos a poner todos nuestros Providers ---
+import { AuthProvider } from './contexts/AuthContext';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import ErrorBoundary from './components/ErrorBoundary';
 
-// Creamos una instancia del cliente
+// Creamos la instancia del cliente de React Query
 const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    {/* Envolvemos nuestro mensaje de éxito con el QueryClientProvider */}
-    <QueryClientProvider client={queryClient}>
-      <div style={{ padding: '20px', color: 'black', backgroundColor: 'lightblue', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '24px' }}>
-        ¡React Query funciona!
-      </div>
-    </QueryClientProvider>
+    {/* Mantenemos el ErrorBoundary por si acaso, es una buena práctica */}
+    <ErrorBoundary>
+      <QueryClientProvider client={queryClient}>
+        <AuthProvider>
+          <App />
+        </AuthProvider>
+      </QueryClientProvider>
+    </ErrorBoundary>
   </React.StrictMode>
 );
